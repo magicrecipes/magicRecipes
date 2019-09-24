@@ -58,7 +58,7 @@ router.post("/signup", (req, res, next) => {
     const newUser = new User({
       username,
       password: hashPass,
-      email: email
+      email
     });
 
     newUser.save()
@@ -93,6 +93,23 @@ router.get("/confirm/:token", (req, res) => {
       console.log("there was an error of authentication");
     });
 });
+
+router.get(
+  '/auth/google',
+  passport.authenticate('google', {
+    scope: [
+      'https://www.googleapis.com/auth/userinfo.profile',
+      'https://www.googleapis.com/auth/userinfo.email',
+    ],
+  }),
+);
+router.get(
+  '/auth/google/callback',
+  passport.authenticate('google', {
+    successRedirect: '/user',
+    failureRedirect: '/login',
+  }),
+);
 
 
 router.get("/logout", (req, res) => {

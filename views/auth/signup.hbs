@@ -13,7 +13,7 @@
   <label for="email">Email</label>
   <input id="email" type="email" name="email" placeholder="Your email">
   {{#if message }}
-    <div class="error-message">{{ message }}</div>
+  <div class="error-message">{{ message }}</div>
   {{/if}}
 
   <br><br>
@@ -24,4 +24,9 @@
     Do you already have an account?
     <a href="/auth/login">Login</a>
   </p>
+
 </form>
+
+<div>
+  <a href="/auth/google">Login With Google</a>
+</div>

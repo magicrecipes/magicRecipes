@@ -19,7 +19,8 @@ const userSchema = new Schema(
       enum: ["Pending-Confirmation", "Active"],
       default: "Pending-Confirmation"
     },
-    confirmationCode: String,
+    googleID: String,
+    confirmationCode: String
   },
   {
     timestamps: {
