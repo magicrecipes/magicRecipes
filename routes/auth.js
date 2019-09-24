@@ -20,6 +20,10 @@ router.get("/userProfile", activate.checkActive,(req, res, next) => {
   res.render("auth/userProfile", { message: req.flash("error") });
 });
 
+router.get("/usersearchRecipes", activate.checkActive,(req, res, next) => {
+  res.render("auth/userSearchRecipes", { message: req.flash("error") });
+});
+
 router.get("/checkMail",(req, res, next) => {
   res.render("auth/checkMail", { message: req.flash("error") });
 });

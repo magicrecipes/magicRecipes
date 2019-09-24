@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,33 @@
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+
 <body>
 
   <nav>
-    <img src="https://images-na.ssl-images-amazon.com/images/I/617nG2f9wxL.png" alt="logo-magicRecipes">
-    <a href="/">Home</a>
-    <a href="/auth/login">Login</a>
-    <a href="/auth/signup">Signup</a>
-    <a href="/auth/logout">Logout</a>
+    <div class="nav-title">
+      <img src="https://images-na.ssl-images-amazon.com/images/I/617nG2f9wxL.png" alt="logo-magicRecipes">
+      <h1>{{title}}</h1>
+    </div>
+    <div class="nav-links-container">
+      <a href="/">Home</a>
+      <a href="/auth/signup">Signup</a>
+      <a href="/auth/userProfile">Profile</a>
+      <a href="/auth/login">Login</a>
+      <a href="/auth/logout">Logout</a>
+    </div>
   </nav>
 
   {{{body}}}
 
+  <footer>
+    <ul class="footer-links">
+      <a href="/">ABOUT</a>
+      <a href="/">CONTACT</a>
+    </ul>
+    <p>Copyright © 2019</p>
+
+  </footer>
   <script src="/javascripts/script.js"></script>
   <script src="/javascripts/spoonApi.js"></script>
   <script src="/javascripts/getRecipe.js"></script>
@@ -26,4 +42,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"
   integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
 </body>
+
 </html>

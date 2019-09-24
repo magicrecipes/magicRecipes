@@ -1,32 +1,35 @@
-<h2>Signup</h2>
+<div class="signup-container">
+  <h2 class="signup-tittle">Signup</h2>
+  <div class="signup-form-container">
+    <form action="/auth/signup" method="POST" id="form-container">
+      <label for="username">Username:</label>
+      <input id="username" type="text" name="username" placeholder="JonSnow">
 
-<form action="/auth/signup" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
+      <br><br>
 
-  <br><br>
+      <label for="password">Password:</label>
+      <input id="password" type="password" name="password" placeholder="Your password">
+      <br><br>
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br><br>
+      <label for="email">Email:</label>
+      <input id="email" type="email" name="email" placeholder="Your email">
+      {{#if message }}
+      <div class="error-message">{{ message }}</div>
+      {{/if}}
 
-  <label for="email">Email</label>
-  <input id="email" type="email" name="email" placeholder="Your email">
-  {{#if message }}
-  <div class="error-message">{{ message }}</div>
-  {{/if}}
+      <br><br>
 
-  <br><br>
+      <button>Create account</button>
 
-  <button>Create account</button>
+      <p class="account-message">
+        Do you already have an account?
+        <a href="/auth/login">Login</a>
+      </p>
 
-  <p class="account-message">
-    Do you already have an account?
-    <a href="/auth/login">Login</a>
-  </p>
+    </form>
 
-</form>
-
-<div>
-  <a href="/auth/google">Login With Google</a>
-</div>
+    <div class="google-container">
+      <img src="https://image.flaticon.com/icons/svg/281/281764.svg" alt="logo google">
+      <a href="/auth/google">Login With Google</a>
+    </div>
+  </div>
