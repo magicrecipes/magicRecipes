@@ -1,31 +1,36 @@
 const express = require("express");
-const passport = require('passport');
+const passport = require("passport");
 const router = express.Router();
 const User = require("../models/User");
-const nodemailer = require("nodemailer");
-let transporter = nodemailer.createTransport({
-  service: "Gmail",
-  auth: {
-    user: process.env.USER_NAME,
-    pass: process.env.PASS
-  }
-});
+const activate = require(`../middlewares/activeMid`);
+
+// NodeMailer import
+const transporter = require("../configs/nodemailer.config");
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-
 router.get("/login", (req, res, next) => {
-  res.render("auth/login", { "message": req.flash("error") });
+  res.render("auth/login", { message: req.flash("error") });
+});
+
+router.get("/userProfile", activate.checkActive,(req, res, next) => {
+  console.log("usuario en el perfil")
+  res.render("auth/userProfile", { message: req.flash("error") });
+});
+
+router.get("/checkMail",(req, res, next) => {
+  res.render("auth/checkMail", { message: req.flash("error") });
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
-  failureRedirect: "/auth/login",
-  failureFlash: true,
-  passReqToCallback: true
-}));
+    successRedirect: "/auth/userProfile",
+    failureRedirect: "/auth/signup",
+    failureFlash: true,
+    passReqToCallback: true
+  })
+);
 
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
@@ -58,42 +63,39 @@ router.post("/signup", (req, res, next) => {
     const newUser = new User({
       username,
       password: hashPass,
-      email: email
+      confirmationCode: token,
+      email
     });
 
-    newUser.save()
-    .then(() => {
-      transporter
-        .sendMail({
-          from: '"My magicRecipe 👻" <gila.ironhack@gmail.com>',
-          to: email,
-          subject: "confirmation email",
-          text: "confirm",
-          html: `<a href="http://localhost:3000/auth/confirm/${token}">please confirm</a>`
-        })
-        .then(info => console.log(info))
-        .catch(error => console.log(error));
-      res.redirect("/"); // redirigir a login
-    })
-    .catch(err => {
-      res.render("auth/signup", { message: "Something went wrong" });
-    })
+    newUser
+      .save()
+      .then(() => {
+        transporter
+          .sendMail({
+            from: '"My magicRecipe 👻" <cristopher.benavides1983@gmail.com>',
+            to: email,
+            subject: "confirmation email",
+            text: "confirm",
+            html: `<a href="http://localhost:3000/auth/confirm/${token}">please confirm</a>`
+          })
+          .then()
+          .catch(error => console.log(error));
+        res.redirect("/auth/login");
+      })
+      .catch(err => {
+        res.render("auth/signup", { message: "Something went wrong" });
+      });
   });
 });
-router.get("/confirm/:token", (req, res) => {
-  User.findOneAndUpdate(
-    { confirmationCode: req.params.token },
-    { $set: { status: "Active" } },
-    { new: true }
-  )
+router.get("/confirm/:token", (req, res) => {//no quiere activar el usuario
+  User.findOneAndUpdate({ confirmationCode: req.params.token },{ $set: { active: true } },{ new: true })
     .then(user => {
-      res.render("auth/user", { user });
+      res.render("auth/login", { user });
     })
     .catch(() => {
       console.log("there was an error of authentication");
     });
 });
-
 
 router.get("/logout", (req, res) => {
   req.logout();
