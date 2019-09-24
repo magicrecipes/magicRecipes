@@ -53,7 +53,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
   
 
 // default value for title local
-app.locals.title = 'Magic recipes';
+app.locals.title = 'Recipe Magic';
 
 
 // Enable authentication using session + passport
