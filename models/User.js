@@ -14,13 +14,17 @@ const userSchema = new Schema(
       type: String,
       unique: true
     },
-    status: {
-      type: String,
-      enum: ["Pending-Confirmation", "Active"],
-      default: "Pending-Confirmation"
+
+    active: {
+      type: Boolean,
+      default: false
     },
+
+    confirmationCode: {
+      type: String,
+      unique: true
+    }
     googleID: String,
-    confirmationCode: String
   },
   {
     timestamps: {
