@@ -23,7 +23,7 @@ const userSchema = new Schema(
     confirmationCode: {
       type: String,
       unique: true
-    }
+    },
     googleID: String,
   },
   {
