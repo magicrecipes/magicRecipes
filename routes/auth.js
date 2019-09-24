@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const passport = require("passport");
 const router = express.Router();
@@ -16,7 +17,6 @@ router.get("/login", (req, res, next) => {
 });
 
 router.get("/userProfile", activate.checkActive,(req, res, next) => {
-  console.log("usuario en el perfil")
   res.render("auth/userProfile", { message: req.flash("error") });
 });
 
@@ -72,7 +72,7 @@ router.post("/signup", (req, res, next) => {
       .then(() => {
         transporter
           .sendMail({
-            from: '"My magicRecipe 👻" <cristopher.benavides1983@gmail.com>',
+            from: `"My magicRecipe 👻" <${process.env.GMAIL_USERNAME}>`,
             to: email,
             subject: "confirmation email",
             text: "confirm",
@@ -87,7 +87,7 @@ router.post("/signup", (req, res, next) => {
       });
   });
 });
-router.get("/confirm/:token", (req, res) => {//no quiere activar el usuario
+router.get("/confirm/:token", (req, res) => {
   User.findOneAndUpdate({ confirmationCode: req.params.token },{ $set: { active: true } },{ new: true })
     .then(user => {
       res.render("auth/login", { user });
@@ -97,20 +97,19 @@ router.get("/confirm/:token", (req, res) => {//no quiere activar el usuario
     });
 });
 
-router.get(
-  '/auth/google',
-  passport.authenticate('google', {
+router.get('/google', passport.authenticate('google', {
     scope: [
       'https://www.googleapis.com/auth/userinfo.profile',
       'https://www.googleapis.com/auth/userinfo.email',
     ],
   }),
 );
+
 router.get(
-  '/auth/google/callback',
+  '/google/callback',
   passport.authenticate('google', {
-    successRedirect: '/user',
-    failureRedirect: '/login',
+    successRedirect: '/auth/userProfile',
+    failureRedirect: '/auth/signup',
   }),
 );
 
