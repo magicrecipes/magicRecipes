@@ -24,6 +24,7 @@ const userSchema = new Schema(
       type: String,
       unique: true
     }
+    googleID: String,
   },
   {
     timestamps: {
