@@ -82,7 +82,7 @@ router.post("/signup", (req, res, next) => {
             to: email,
             subject: "confirmation email",
             text: "confirm",
-            html: `<a href="http://localhost:3000/auth/confirm/${token}">please confirm</a>`
+            html: `<a href="https://magicrecipes.herokuapp.com/auth/confirm/${token}">please confirm</a>`
           })
           .then()
           .catch(error => console.log(error));
