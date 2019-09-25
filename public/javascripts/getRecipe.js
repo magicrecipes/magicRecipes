@@ -12,20 +12,16 @@ document.getElementById("btn-searchRecipes").addEventListener("click", e => {
     .then(allRecipes => {
       allRecipes.data.forEach(
         (element) => {
-          const ul = document.getElementById("found-recipes");
+          const div = document.getElementById("found-recipes");
           let elRecipe = document.createElement("a");
           elRecipe.appendChild(document.createTextNode(element.title));
-          elRecipe.href=`/auth/recipe/${element.id}`
-          ul.appendChild(elRecipe);
+          elRecipe.href=`/profile/userViewRecipe/${element.id}`
+          div.appendChild(elRecipe);
           elRecipe = document.createElement("img");
           elRecipe.src = element.image;
-          //  li.id="element.id"
-          ul.appendChild(elRecipe);
-
-          
-        
+          elRecipe.alt="element.title"
+          div.appendChild(elRecipe);        
         }
-       
       );
     });
 });

@@ -17,11 +17,11 @@ router.get("/login", (req, res, next) => {
 });
 
 router.get("/userProfile", activate.checkActive, (req, res, next) => {
-  res.render("auth/userProfile", { message: req.flash("error") });
+  res.render("profile/userProfile", { message: req.flash("error") });
 });
 
 router.get("/usersearchRecipes", activate.checkActive, (req, res, next) => {
-  res.render("auth/userSearchRecipes", { message: req.flash("error") });
+  res.render("profile/userSearchRecipes", { message: req.flash("error") });
 });
 
 router.get("/checkMail", (req, res, next) => {
@@ -31,7 +31,7 @@ router.get("/checkMail", (req, res, next) => {
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/auth/userProfile",
+    successRedirect: "/profile/userProfile",
     failureRedirect: "/auth/signup",
     failureFlash: true,
     passReqToCallback: true
@@ -131,7 +131,7 @@ router.get(
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: "/auth/userProfile",
+    successRedirect: "/profile/userProfile",
     failureRedirect: "/auth/signup"
   })
 );
