@@ -11,4 +11,10 @@ class SpoonApi {
   getPrice(recipeId) {
     return axios.get(`${this.url}/${recipeId}priceBreakdownWidget.json`);
   }
+
+  getRecipeInfo(recipeId) {
+    return axios.get(
+      `${this.url}/${recipeId}/information??apiKey=cc6d41a5219b4fcfbb7f408d71cd3a3c`
+    );
+  }
 }
