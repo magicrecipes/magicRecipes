@@ -3,7 +3,6 @@ const express = require("express");
 const passport = require("passport");
 const router = express.Router();
 const User = require("../models/User");
-const activate = require(`../middlewares/activeMid`);
 
 // NodeMailer import
 const transporter = require("../configs/nodemailer.config");
@@ -85,16 +84,6 @@ router.post("/signup", (req, res, next) => {
       });
   });
 });
-
-// router.get("/recipe/:borja", (req, res) => {
-//   let recipeID = req.params.bora
-
-//   axios.get("https://www.spoonful.com/recipes/" + recipeID + "/analyzendInstruction").then(recipe => {
-//     steps = ["a", "b", "c"]
-
-//     res.render("view-recipe.hbs", recipe)
-//   })
-// })
 
 router.get("/confirm/:token", (req, res) => {
   User.findOneAndUpdate(
