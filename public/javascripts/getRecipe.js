@@ -5,11 +5,7 @@ document.getElementById("btn-searchRecipes").addEventListener("click", e => {
   let ingredient1 = document.querySelector("#ingredient-1").value;
   let ingredient2 = document.querySelector("#ingredient-2").value;
   let ingredient3 = document.querySelector("#ingredient-3").value;
-  // let contenedor =document.querySelector("#receta").innerHTML;
-  // var ul = document.getElementById("receta");
-  // var li = document.createElement("li");
-  // li.appendChild(document.createTextNode("Four"));
-  // ul.appendChild(li);
+  
 
   recipeApi
     .getRecipe(ingredient1, ingredient2, ingredient3)
@@ -26,7 +22,7 @@ document.getElementById("btn-searchRecipes").addEventListener("click", e => {
           //  li.id="element.id"
           ul.appendChild(elRecipe);
 
-          console.log(allRecipes);
+          
         
         }
        

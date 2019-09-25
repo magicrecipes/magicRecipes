@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const passport = require("passport");
 const router = express.Router();
@@ -16,19 +16,21 @@ router.get("/login", (req, res, next) => {
   res.render("auth/login", { message: req.flash("error") });
 });
 
-router.get("/userProfile", activate.checkActive,(req, res, next) => {
+router.get("/userProfile", activate.checkActive, (req, res, next) => {
   res.render("auth/userProfile", { message: req.flash("error") });
 });
 
-router.get("/usersearchRecipes", activate.checkActive,(req, res, next) => {
+router.get("/usersearchRecipes", activate.checkActive, (req, res, next) => {
   res.render("auth/userSearchRecipes", { message: req.flash("error") });
 });
 
-router.get("/checkMail",(req, res, next) => {
+router.get("/checkMail", (req, res, next) => {
   res.render("auth/checkMail", { message: req.flash("error") });
 });
 
-router.post("/login", passport.authenticate("local", {
+router.post(
+  "/login",
+  passport.authenticate("local", {
     successRedirect: "/auth/userProfile",
     failureRedirect: "/auth/signup",
     failureFlash: true,
@@ -92,8 +94,6 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
-
-
 // router.get("/recipe/:borja", (req, res) => {
 //   let recipeID = req.params.bora
 
@@ -105,7 +105,11 @@ router.post("/signup", (req, res, next) => {
 // })
 
 router.get("/confirm/:token", (req, res) => {
-  User.findOneAndUpdate({ confirmationCode: req.params.token },{ $set: { active: true } },{ new: true })
+  User.findOneAndUpdate(
+    { confirmationCode: req.params.token },
+    { $set: { active: true } },
+    { new: true }
+  )
     .then(user => {
       res.render("auth/login", { user });
     })
@@ -114,20 +118,22 @@ router.get("/confirm/:token", (req, res) => {
     });
 });
 
-router.get('/google', passport.authenticate('google', {
+router.get(
+  "/google",
+  passport.authenticate("google", {
     scope: [
-      'https://www.googleapis.com/auth/userinfo.profile',
-      'https://www.googleapis.com/auth/userinfo.email',
-    ],
-  }),
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/userinfo.email"
+    ]
+  })
 );
 
 router.get(
-  '/google/callback',
-  passport.authenticate('google', {
-    successRedirect: '/auth/userProfile',
-    failureRedirect: '/auth/signup',
-  }),
+  "/google/callback",
+  passport.authenticate("google", {
+    successRedirect: "/auth/userProfile",
+    failureRedirect: "/auth/signup"
+  })
 );
 
 router.get("/logout", (req, res) => {
