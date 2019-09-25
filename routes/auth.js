@@ -91,6 +91,19 @@ router.post("/signup", (req, res, next) => {
       });
   });
 });
+
+
+
+// router.get("/recipe/:borja", (req, res) => {
+//   let recipeID = req.params.bora
+
+//   axios.get("https://www.spoonful.com/recipes/" + recipeID + "/analyzendInstruction").then(recipe => {
+//     steps = ["a", "b", "c"]
+
+//     res.render("view-recipe.hbs", recipe)
+//   })
+// })
+
 router.get("/confirm/:token", (req, res) => {
   User.findOneAndUpdate({ confirmationCode: req.params.token },{ $set: { active: true } },{ new: true })
     .then(user => {
