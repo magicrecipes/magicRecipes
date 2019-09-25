@@ -1,25 +1,27 @@
+<div class="login-container">
+  <form class="login-form-container" action="/auth/login" method="POST" id="form-container">
+    <h2>Login</h2>
 
-<h2>Login</h2>
+    <div class="login-fields-container">
+      <label for="username">Username:</label>
+      <input id="username" type="text" name="username" placeholder="JonSnow">
+    </div>
 
-<form action="/auth/login" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
+    <div class="login-fields-container">
+      <label for="password">Password:</label>
+      <input id="password" type="password" name="password" placeholder="Your password">
+    </div>
 
-  <br><br>
-
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
-  {{#if message }}
+    {{#if message }}
     <div class="error-message">{{ message }}</div>
-  {{/if}}
+    {{/if}}
 
-  <br><br>
+    <button>Login</button>
 
-  <button>Login</button>
-
-  <p class="account-message">
-    Don't have an account yet?
-    <a href="/auth/signup">Signup</a>
-  </p>
-</form>
+    <p class="account-message">
+      Don't have an account yet?
+      <a href="/auth/signup">Signup</a>
+    </p>
+  </form>
+  <img src="https://images-na.ssl-images-amazon.com/images/I/617nG2f9wxL.png" alt="image login">
+</div>
