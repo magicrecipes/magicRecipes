@@ -16,14 +16,6 @@ router.get("/login", (req, res, next) => {
   res.render("auth/login", { message: req.flash("error") });
 });
 
-router.get("/userProfile", activate.checkActive, (req, res, next) => {
-  res.render("profile/userProfile", { message: req.flash("error") });
-});
-
-router.get("/usersearchRecipes", activate.checkActive, (req, res, next) => {
-  res.render("profile/userSearchRecipes", { message: req.flash("error") });
-});
-
 router.get("/checkMail", (req, res, next) => {
   res.render("auth/checkMail", { message: req.flash("error") });
 });
