@@ -9,17 +9,19 @@ document.getElementById("btn-searchRecipes").addEventListener("click", e => {
   recipeApi
     .getRecipe(ingredient1, ingredient2, ingredient3)
     .then(allRecipes => {
-      allRecipes.data.forEach(element => {
-        const ul = document.getElementById("found-recipes");
-        let elRecipe = document.createElement("a");
-        elRecipe.appendChild(document.createTextNode(element.title));
-        elRecipe.href = `/auth/recipe/${element.id}`;
-        ul.appendChild(elRecipe);
-        elRecipe = document.createElement("img");
-        elRecipe.src = element.image;
-        //  li.id="element.id"
-        ul.appendChild(elRecipe);
-      });
+      allRecipes.data.forEach(
+        (element) => {
+          const div = document.getElementById("found-recipes");
+          let elRecipe = document.createElement("a");
+          elRecipe.appendChild(document.createTextNode(element.title));
+          elRecipe.href=`/profile/userViewRecipe/${element.id}`
+          div.appendChild(elRecipe);
+          elRecipe = document.createElement("img");
+          elRecipe.src = element.image;
+          elRecipe.alt="element.title"
+          div.appendChild(elRecipe);        
+        }
+      );
     });
 });
 // recipeApi.getPrice()

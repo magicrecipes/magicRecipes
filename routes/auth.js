@@ -3,7 +3,6 @@ const express = require("express");
 const passport = require("passport");
 const router = express.Router();
 const User = require("../models/User");
-const activate = require(`../middlewares/activeMid`);
 
 // NodeMailer import
 const transporter = require("../configs/nodemailer.config");
@@ -16,14 +15,6 @@ router.get("/login", (req, res, next) => {
   res.render("auth/login", { message: req.flash("error") });
 });
 
-router.get("/userProfile", activate.checkActive, (req, res, next) => {
-  res.render("auth/userProfile", { message: req.flash("error") });
-});
-
-router.get("/usersearchRecipes", activate.checkActive, (req, res, next) => {
-  res.render("auth/userSearchRecipes", { message: req.flash("error") });
-});
-
 router.get("/checkMail", (req, res, next) => {
   res.render("auth/checkMail", { message: req.flash("error") });
 });
@@ -31,7 +22,7 @@ router.get("/checkMail", (req, res, next) => {
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/auth/userProfile",
+    successRedirect: "/profile/userProfile",
     failureRedirect: "/auth/signup",
     failureFlash: true,
     passReqToCallback: true
@@ -82,7 +73,7 @@ router.post("/signup", (req, res, next) => {
             to: email,
             subject: "confirmation email",
             text: "confirm",
-            html: `<a href="http://localhost:3000/auth/confirm/${token}">please confirm</a>`
+            html: `<a href="https://magicrecipes.herokuapp.com/auth/confirm/${token}">please confirm</a>`
           })
           .then()
           .catch(error => console.log(error));
@@ -123,7 +114,7 @@ router.get(
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: "/auth/userProfile",
+    successRedirect: "/profile/userProfile",
     failureRedirect: "/auth/signup"
   })
 );
