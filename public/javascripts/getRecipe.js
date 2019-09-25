@@ -14,7 +14,7 @@ document.getElementById("btn-searchRecipes").addEventListener("click", e => {
           const div = document.getElementById("found-recipes");
           let elRecipe = document.createElement("a");
           elRecipe.appendChild(document.createTextNode(element.title));
-          elRecipe.href=`/profile/userViewRecipe/${element.id}`
+          elRecipe.href=`/recipes/${element.id}`
           div.appendChild(elRecipe);
           elRecipe = document.createElement("img");
           elRecipe.src = element.image;

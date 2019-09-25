@@ -75,6 +75,8 @@ app.use('/auth', authRoutes);
 
 const profileRoutes = require('./routes/profile');
 app.use('/profile', profileRoutes);
+const recipesRoutes = require("./routes/recipes");
+app.use("/recipes", recipesRoutes);
       
 
 module.exports = app;

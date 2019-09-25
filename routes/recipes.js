@@ -1,16 +1,17 @@
 require("dotenv").config();
 const express = require("express");
 const router = express.Router();
-const recipesRoutes = require("./routes/recipes");
-app.use("/recipes", recipesRoutes);
-const recipeApi = new SpoonApi("https://api.spoonacular.com/recipes");
+const axios = require("axios");
+
 
 router.get("/:id", (req, res) => {
   let recipeID = req.params.id;
-  recipeApi
-    .getRecipeInfo(recipeID)
+  axios.get(`https://api.spoonacular.com/recipes/${recipeID}/information?apiKey=cc6d41a5219b4fcfbb7f408d71cd3a3c`)
+    
     .then(recipeInfo => {
-      res.render("/views/auth/view-recipe", { recipeInfo });
+      console.log(recipeInfo.data)
+      let recipeDetail=recipeInfo.data
+      res.render("profile/userViewRecipe", { recipeDetail });
     })
     .catch(error => console.log(error));
 });
