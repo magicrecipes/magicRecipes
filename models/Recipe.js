@@ -22,5 +22,5 @@ const recipeSchema = new Schema(
   }
 );
 
-const User = mongoose.model("Recipe", recipeSchema);
+const Recipe = mongoose.model("Recipe", recipeSchema);
 module.exports = Recipe;
