@@ -3,16 +3,16 @@ const Schema = mongoose.Schema;
 
 const recipeSchema = new Schema(
   {
-    id: Number,
-    title:String,
-    image: String,
-    cuisines:[],
-    readyInMinutes: Number,
-    servings: Number,
-    pricePerServing: Number,
-    extendedIngredients: [],
-    instructions: String,
-    analizedInstructions: []
+    // id: Number,
+    // title:String,
+    // image: String,
+    // cuisines:[],
+    // readyInMinutes: Number,
+    // servings: Number,
+    // pricePerServing: Number,
+    // extendedIngredients: [],
+    // analizedInstructions: [],
+    instructions: String
   },
   {
     timestamps: {

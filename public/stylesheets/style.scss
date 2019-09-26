@@ -153,12 +153,14 @@ footer p {
 .usersearch-container {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .search-container {
   display: flex;
   flex-direction: column;
+  width: 30%;
+  margin-bottom: 20px;
 }
 
 .ingredient-container {
@@ -188,11 +190,11 @@ footer p {
   margin-left: 50px;
 }
 
-.userprofile-container{
+.userprofile-container {
   display: flex;
   flex-direction: column;
 }
-.userprofile-container h1{
+.userprofile-container h1 {
   margin-left: 50px;
 }
 .userprofile-img-recipes {
@@ -232,7 +234,7 @@ footer p {
   margin-bottom: 20px;
 }
 
-.login-container img{
+.login-container img {
   width: 25%;
 }
 
@@ -252,4 +254,83 @@ footer p {
 
 .login-fields-container input {
   margin: 0 20px;
+}
+
+.found-recipes-container {
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+.found-recipes-container h3 {
+  align-items: center;
+  text-align: center;
+}
+
+#found-recipes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#found-recipes div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+#found-recipes img {
+  width: 200px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.card-recipes {
+  width: 30%;
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 10px 10px 5px 0px rgba(156,156,156,1);
+}
+.card-recipes a {
+  text-decoration: none;
+  color: dimgray;
+  font-weight: bold;
+  text-align: center;
+}
+
+.userViewRecipe-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin: 0 40px;
+  margin-bottom: 20px;
+}
+
+.viewRecipe-container {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.ingredients-conntainer {
+  width: 45%;
+}
+.ingredients-conntainer img {
+  width: 80%;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.viewRecipe-container p {
+  text-align: justify;
+}
+
+#ing-li li {
+  font-weight: bold;
 }

@@ -1,3 +1,36 @@
-<h1>view Recipe</h1>
+<a href="/profile/userSearchRecipes">back</a>
+<div class="userViewRecipe-container">
+  <div class="viewRecipe-container">
+    <h3>Instructions:</h3>
+    <p>{{recipeDetail.instructions}}</p>
+    <div>
+      <h3>Steps:</h3>
+      {{#each recipeDetail.analyzedInstructions.0.steps}}
+      <h4>Number {{this.number}}:</h4>
+      <p>{{this.step}}</p>
+      {{/each}}
+    </div>
+  </div>
+  <div class="ingredients-conntainer">
+    <h1>{{recipeDetail.title}}</h1>
+    <img src="{{recipeDetail.image}}" alt="{{recipeDetail.title}}">
+    <div>
+      <h3>Information:</h3>
+      <p>Ready in minutes: {{recipeDetail.readyInMinutes}}</p>
+      <p>Servings: {{recipeDetail.servings}}</p>
+      <p>Price per serving: $ {{recipeDetail.pricePerServing}}</p>
+    </div>
+    <div>
+      <h3>Ingredients:</h3>
+      <ol>
+        {{#each recipeDetail.extendedIngredients}}
+        <div id="ing-li">
+          <li>{{this.name}}.</li>
+          <p>Amount: {{this.amount}} {{this.unit}}.</p>
 
-<h3>{{recipeDetail.instructions}}</h3>
+        </div>
+        {{/each}}
+      </ol>
+    </div>
+  </div>
+</div>
