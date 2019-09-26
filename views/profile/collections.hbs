@@ -1,0 +1,30 @@
+<div>
+  {{#each foundUser.recipes}}
+
+  <div>
+    <h1>{{this.title}}</h1>
+    <h1>{{this._id}}</h1>
+
+    <img src={{this.image}} alt="hardshit">
+  </div>
+
+  <form action="/recipes/update" method="POST">
+    <input type="text" name="_id" id="" value={{this._id}}>
+    <input id="title" type="text" name="title" placeholder="Your title" value={{this.title}}>
+    <input id="readyInMinutes" type="number" name="readyInMinutes" placeholder="Your readyInMinutes"
+      value={{this.readyInMinutes}}>
+    <input id="pricePerServing" type="number" name="title" placeholder="Your price" value={{this.pricePerServing}}>
+    <input id="servings" type="number" name="servings" placeholder="servings" value={{this.servings}}>
+    {{!-- <input id="extendedIngredients" type="text" name="extendedIngredients" placeholder="extendedIngredients"
+      value={{this.extendedIngredients}}> --}}
+    <input id="instructions" type="text" name="instructions" placeholder="instructions" value={{this.instructions}}>
+    {{!-- <input id="analizedInstructions" type="text" name="analizedInstructions" placeholder="analizedInstructions"
+      value={{this.analizedInstructions}}> --}}
+
+    <button>Update</button>
+
+
+  </form>
+  <a href="{{host}}/recipes/delete/{{this._id}}">Delete</a>
+  {{/each}}
+</div>

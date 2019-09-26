@@ -5,7 +5,7 @@ const recipeSchema = new Schema(
   {
     id: {
       type:Number,
-      unique:true
+      
     },
      title:String,
      image: String,
@@ -15,7 +15,8 @@ const recipeSchema = new Schema(
      pricePerServing: Number,
      extendedIngredients: [],
      analizedInstructions: [],
-     instructions: String
+     instructions: String,
+     favorite:Boolean,
   },
   {
     timestamps: {
