@@ -5,6 +5,7 @@ const axios = require("axios");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Recipe = require("../models/Recipe");
+const User = require("../models/User")
 
 router.get("/:id", (req, res) => {
   let recipeID = req.params.id;
@@ -26,29 +27,42 @@ router.get("/:id", (req, res) => {
 //   );
 // });
 router.post("/createRecipe", (req, res) => {
+  console.log(req.body.id)
   let {
     id,
     title,
+    image,
     cuisine,
     readyInMinutes,
     servings,
     pricePerServing,
-    instructions
-  } = req.params.id;
+    instructions,
+    analizedInstructions
+  } = req.body;
   const newRecipe = new Recipe({
     id,
     title,
+    image,
     cuisine,
     readyInMinutes,
     servings,
     pricePerServing,
-    instructions
+    instructions,
+    analizedInstructions
   });
   newRecipe
     .save()
-    .then(newRecipeSaved => {})
-    .catch(error, console.log(error));
+    .then(newRecipeSaved => {
+      User.findByIdAndUpdate(req.user._id,{$push:{recipes:newRecipeSaved._id}},{new:true})
+      .then(user=>{
+        res.redirect("/profile/userProfile")
+      })
+      .catch(err=>{console.log(err)})
+    })
+    .catch(error=>console.log(error));
 });
+
+
 router.post("/delete/:recipeID", (req, res) => {
   Recipe.findByIdAndDelete(req.params.recipeID).then(recipeDeleted => {
     res.redirect("/");

@@ -25,6 +25,7 @@ const userSchema = new Schema(
       unique: true
     },
     googleID: String,
+    recipes:[{type:Schema.Types.ObjectId, ref:"Recipe"}]
   },
   {
     timestamps: {
