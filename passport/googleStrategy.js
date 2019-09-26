@@ -8,7 +8,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      callbackURL: "https://magicrecipes.herokuapp.com/auth/google/callback"
+      callbackURL: `${process.env.LOCAL_URL}auth/google/callback`
     },
     (accessToken, refreshToken, profile, done) => {
       // to see the structure of the data in received response:
@@ -23,7 +23,8 @@ passport.use(
             googleID: profile.id,
             username: profile.displayName,
             email: profile.emails[0].value,
-            active: true
+            active: true,
+            recipes:[]
           })
             .then(newUser => {
               done(null, newUser);
