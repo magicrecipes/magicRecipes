@@ -18,16 +18,14 @@ router.get("/:id", (req, res) => {
 
     .then(recipeInfo => {
       let recipeDetail = recipeInfo.data;
-      res.render("profile/userViewRecipe", { recipeDetail });
+      let list =  JSON.stringify(recipeDetail.extendedIngredients)
+      // console.log(recipeDetail)
+      // console.log(recipeDetail.cuisines)
+      res.render("profile/userViewRecipe", { recipeDetail,list });
     })
     .catch(error => console.log(error));
 });
-// router.get("/price/:id", (req, res) => {
-//   let recipeID = req.params.id;
-//   axios.get(
-//     `https://api.spoonacular.com/recipes/${recipeID}/priceBreakdownWidget.json?apiKey=${process.env.SPOON_KEY}`
-//   );
-// });
+
 router.post("/createRecipe", (req, res) => {
   
   let {
@@ -39,8 +37,12 @@ router.post("/createRecipe", (req, res) => {
     servings,
     pricePerServing,
     instructions,
-    analizedInstructions
+    analizedInstructions,
+    
   } = req.body;
+  let extendedIngredients = JSON.parse(req.body.extendedIngredients)
+  // let ex=req.body.extendedIngredients
+  // console.log(JSON.parse(ex))
   const newRecipe = new Recipe({
     id,
     title,
@@ -50,7 +52,8 @@ router.post("/createRecipe", (req, res) => {
     servings,
     pricePerServing,
     instructions,
-    analizedInstructions
+    analizedInstructions,
+    extendedIngredients
   });
   newRecipe
     .save()
