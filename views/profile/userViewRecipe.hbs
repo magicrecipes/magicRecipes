@@ -37,12 +37,12 @@
 
 
 <form action="/recipes/createRecipe" method="POST">
-
+  
   <input id="apiId" type="hidden" name="apiId" value="{{recipeDetail.apiId}}">
   <input id="title" type="hidden" name="title" value="{{recipeDetail.title}}">
   <input id="readyInMinutes" type="hidden" name="readyInMinutes" 
     value="{{recipeDetail.readyInMinutes}}">
-
+    <input id="image" type="hidden" name="image" value="{{recipeDetail.image}}">
   <input id="cuisines" type="hidden" name="cuisines"  value="{{recipeDetail.cuisines}}">
   <input id="servings" type="hidden" name="servings"  value="{{recipeDetail.servings}}">
   <input id="extendedIngredients" type="text" name="extendedIngredients" 
