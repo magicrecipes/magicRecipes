@@ -27,7 +27,7 @@
         <div id="ing-li">
           <li>{{this.name}}.</li>
           <p>Amount: {{this.amount}} {{this.unit}}.</p>
- 
+
         </div>
         {{/each}}
       </ol>
@@ -40,17 +40,14 @@
 
   <input id="apiId" type="hidden" name="apiId" value="{{recipeDetail.apiId}}">
   <input id="title" type="hidden" name="title" value="{{recipeDetail.title}}">
-  <input id="readyInMinutes" type="hidden" name="readyInMinutes" 
-    value="{{recipeDetail.readyInMinutes}}">
-
-  <input id="cuisines" type="hidden" name="cuisines"  value="{{recipeDetail.cuisines}}">
-  <input id="servings" type="hidden" name="servings"  value="{{recipeDetail.servings}}">
-  <input id="extendedIngredients" type="text" name="extendedIngredients" 
-    value="{{list}}">
-  <input id="instructions" type="hidden" name="instructions" 
-    value="{{recipeDetail.instructions}}">
-    <input id="analizedInstructions" type="hidden" name="analizedInstructions" 
-    value="{{recipeDetail.analyzedInstructions.0.steps}}">
+  <input id="image" type="hidden" name="image" value="{{recipeDetail.image}}">
+  <input id="cuisines" type="hidden" name="cuisines" value="{{cuisines}}">
+  <input id="readyInMinutes" type="hidden" name="readyInMinutes" value="{{recipeDetail.readyInMinutes}}">
+  <input id="servings" type="hidden" name="servings" value="{{recipeDetail.servings}}">
+  <input id="pricePerServing" type="hidden" name="pricePerServing" value="{{recipeDetail.pricePerServing}}">
+  <input id="extendedIngredients" type="hidden" name="extendedIngredients" value="{{ingredients}}">
+  <input id="analizedInstructions" type="hidden" name="analizedInstructions" value="{{steps}}">
+  <input id="instructions" type="hidden" name="instructions" value="{{recipeDetail.instructions}}">
 
   <button>Add</button>
 </form>

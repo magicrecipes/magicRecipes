@@ -5,7 +5,7 @@ class SpoonApi {
 
   getRecipe(ingredient1, ingredient2, ingredient3) {
     return axios.get(
-      `${this.url}/findByIngredients?ingredients=${ingredient1},+${ingredient2},+${ingredient3}&apiKey=cc6d41a5219b4fcfbb7f408d71cd3a3c`
+      `${this.url}/findByIngredients?ingredients=${ingredient1},+${ingredient2},+${ingredient3}&apiKey=2419140a04c640f0bb96498eb6ad9124`
     );
   }
   getPrice(recipeId) {
@@ -14,7 +14,7 @@ class SpoonApi {
 
   getRecipeInfo(recipeId) {
     return axios.get(
-      `${this.url}/${recipeId}/information?apiKey=cc6d41a5219b4fcfbb7f408d71cd3a3c`
+      `${this.url}/${recipeId}/information?apiKey=2419140a04c640f0bb96498eb6ad9124`
     );
   }
 }

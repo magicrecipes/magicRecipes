@@ -24,12 +24,10 @@ router.get("/collections", activate.checkActive, (req, res, next) => {
   User.findById(req.user._id)
   .populate("recipes")
   .then(foundUser=>{
-    console.log(foundUser)
-    res.render("profile/collections",{foundUser, host: process.env.LOCAL_URL})
+    res.render("profile/collections",{user: req.user,foundUser, host: process.env.LOCAL_URL})
   })
   
  });
-
 
 router.get("/userCollections", activate.checkActive, (req, res, next) => {
   User.findByIdAndUpdate((req.user._id)).populate("recipes").then (user=>{

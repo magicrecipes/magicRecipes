@@ -13,7 +13,7 @@ const recipeSchema = new Schema(
      extendedIngredients: [],
      analizedInstructions: [],
      instructions: String,
-     favorite:Boolean,
+     favorite:Boolean
   },
   {
     timestamps: {

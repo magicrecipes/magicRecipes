@@ -25,4 +25,3 @@ document.getElementById("btn-searchRecipes").addEventListener("click", e => {
       });
     });
 });
-// recipeApi.getPrice()
