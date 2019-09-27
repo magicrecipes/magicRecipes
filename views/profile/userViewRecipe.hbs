@@ -1,4 +1,3 @@
-<a href="/profile/userSearchRecipes">back</a>
 <div class="userViewRecipe-container">
   <div class="viewRecipe-container">
     <h3>Instructions:</h3>
@@ -12,7 +11,7 @@
     </div>
   </div>
   <div class="ingredients-conntainer">
-    <h1>{{recipeDetail.title}}</h1>
+    <h1 class="signup-title">{{recipeDetail.title}}</h1>
     <img src="{{recipeDetail.image}}" alt="{{recipeDetail.title}}">
     <div>
       <h3>Information:</h3>
@@ -33,9 +32,6 @@
       </ol>
     </div>
   </div>
-</div>
-
-
 <form action="/recipes/createRecipe" method="POST">
   
   <input id="apiId" type="hidden" name="apiId" value="{{recipeDetail.apiId}}">
@@ -49,5 +45,8 @@
   <input id="analizedInstructions" type="hidden" name="analizedInstructions" value="{{steps}}">
   <input id="instructions" type="hidden" name="instructions" value="{{recipeDetail.instructions}}">
 
-  <button>Add</button>
+  <button class="btn-colletions">Add</button>
+</div>
+
+
 </form>

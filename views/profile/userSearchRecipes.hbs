@@ -1,6 +1,6 @@
 <div class="usersearch-container">
   <div class="search-container">
-  <h1>Hello {{user.username}}</h1>
+    <h1 class="signup-title">Hello {{user.username}}</h1>
     <div class="ingredient-container">
       <div class="ingredient-label">
         <label for="ingredient-1">Ingredient No 1:</label>
@@ -8,16 +8,16 @@
         <label for="ingredient-3">Ingredient No 3:</label>
       </div>
       <div class="ingredient-input">
-        <input id="ingredient-1" type="text" placeholder="e.g. tomatoes" value="tomatoes">
-        <input id="ingredient-2" type="text" placeholder="e.g. sal" value="meet">
-        <input id="ingredient-3" type="text" placeholder="e.g. pepper" value="mushroom">
+        <input id="ingredient-1" type="text" placeholder="e.g. tomatoes">
+        <input id="ingredient-2" type="text" placeholder="e.g. sal">
+        <input id="ingredient-3" type="text" placeholder="e.g. pepper">
       </div>
     </div>
 
-    <button id="btn-searchRecipes" type="submit">Search Recipes</button>
+    <button class="btn-colletions" id="btn-searchRecipes" type="submit">Search Recipes</button>
   </div>
   <div class="found-recipes-container">
-    <h1>Result Search:</h1>
+    <h1 class="signup-title">Magic Recipes Found:</h1>
     <div id="found-recipes">
     </div>
   </div>

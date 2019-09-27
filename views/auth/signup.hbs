@@ -1,29 +1,32 @@
 <div class="signup-container">
-  <h2 class="signup-tittle">Signup</h2>
+  <h2 class="signup-title">Signup to Recipe Magic</h2>
 
   <div class="signup-form-container">
     <form class="form-container" action="/auth/signup" method="POST" id="form-container">
       <div class="label-input-container">
-        <div class="form-labels">
+        <div class="signup-labelsAndInputs">
           <label for="username">Username:</label>
-          <label for="password">Password:</label>
-          <label for="email">Email:</label>
+          <input class="signup-inputs" id="username" type="text" name="username" placeholder="Axl">
         </div>
-        <div class="form-inputs">
-          <input id="username" type="text" name="username" placeholder="JonSnow">
-          <input id="password" type="password" name="password" placeholder="Your password">
-          <input id="email" type="email" name="email" placeholder="Your email">
+        <div class="signup-labelsAndInputs">
+          <label for="password">Password:</label>
+          <input class="signup-inputs" id="password" type="password" name="password" placeholder="Ca23V.weY">
+        </div>
+        <div class="signup-labelsAndInputs">
+          <label for="email">Email:</label>
+          <input class="signup-inputs" id="email" type="email" name="email" placeholder="abc123@ironhack.com">
         </div>
       </div>
       {{#if message }}
       <div class="error-message">{{ message }}</div>
       {{/if}}
-      <button>Create account</button>
-      <p class="account-message">
-        Do you already have an account?
-        <a href="/auth/login">Login</a>
-      </p>
-
+      <div class="signup-btn-container">
+        <button id="" class="btn-colletions">Create Account</button>
+        <p class="account-message">
+          Do you already have an account?
+          <a href="/auth/login">Login</a>
+        </p>
+      </div>
     </form>
 
     <div class="google-container">
@@ -31,3 +34,4 @@
       <a href="/auth/google">Login With Google</a>
     </div>
   </div>
+</div>

@@ -1,26 +1,29 @@
-<h1>{{user.username}}'s Recipes</h1>
-<a href="/profile/userProfile">Back to Profile</a>
+<h1 class="signup-title">{{user.username}}'s Magic Recipes</h1>
 <div class="collections-container">
   {{#each foundUser.recipes}}
   <div class="collections-card">
-    <div>
-    <h2>{{this.title}}</h2>
-    <img class="collections-image" src={{this.image}} alt="hardshit">
+    <div class="collections-title">
+      <h2>{{this.title}}</h2>
+      <img class="collections-image" src={{this.image}} alt="hardshit">
     </div>
-    <form action="/recipes/update" method="POST">
+    <form class="collections-form" action="/recipes/update" method="POST">
       <input id="_id" type="hidden" name="_id" value="{{this._id}}">
       <div>
         <p>Title: </p>
-        <input id="title" type="text" name="title" placeholder="Your title" value="{{this.title}}">
+        <textarea id="titleUp" rows="1" name="titleUp" placeholder="Your title">
+      {{this.title}}
+      </textarea>
       </div>
       <div>
         <p>Instructions: </p>
-        <textarea id="instructionsUp" rows="20" name="instructionsUp" placeholder="instructions" >
+        <textarea id="instructionsUp" rows="17" name="instructionsUp" placeholder="instructions">
           {{this.instructions}}
       </textarea>
       </div>
-      <button>Update</button>
-      <a href="{{host}}/recipes/delete/{{this._id}}">Delete</a>
+      <div class="btns-collections">
+        <button class="btn-colletions">Update</button>
+        <button class="btn-colletions"><a href="{{host}}/recipes/delete/{{this._id}}">Delete</a></button>
+      </div>
     </form>
 
   </div>

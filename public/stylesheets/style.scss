@@ -5,14 +5,87 @@
 body {
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: rgba(209,87,239,1);
-  background: -moz-linear-gradient(top, rgba(209,87,239,1) 0%, rgba(255,255,255,1) 50%, rgba(209,87,239,1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(209,87,239,1)), color-stop(50%, rgba(255,255,255,1)), color-stop(100%, rgba(209,87,239,1)));
-  background: -webkit-linear-gradient(top, rgba(209,87,239,1) 0%, rgba(255,255,255,1) 50%, rgba(209,87,239,1) 100%);
-  background: -o-linear-gradient(top, rgba(209,87,239,1) 0%, rgba(255,255,255,1) 50%, rgba(209,87,239,1) 100%);
-  background: -ms-linear-gradient(top, rgba(209,87,239,1) 0%, rgba(255,255,255,1) 50%, rgba(209,87,239,1) 100%);
-  background: linear-gradient(to bottom, rgba(209,87,239,1) 0%, rgba(255,255,255,1) 50%, rgba(209,87,239,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d157ef', endColorstr='#d157ef', GradientType=0 );
+  background: rgba(19, 19, 19, 1);
+  background: -moz-linear-gradient(
+    -45deg,
+    rgba(19, 19, 19, 1) 0%,
+    rgba(46, 45, 46, 1) 12%,
+    rgba(77, 77, 77, 1) 25%,
+    rgba(117, 117, 117, 1) 39%,
+    rgba(110, 110, 110, 1) 48%,
+    rgba(138, 134, 138, 1) 52%,
+    rgba(97, 97, 97, 1) 60%,
+    rgba(77, 77, 77, 1) 76%,
+    rgba(33, 33, 33, 1) 91%,
+    rgba(19, 19, 19, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    right bottom,
+    color-stop(0%, rgba(19, 19, 19, 1)),
+    color-stop(12%, rgba(46, 45, 46, 1)),
+    color-stop(25%, rgba(77, 77, 77, 1)),
+    color-stop(39%, rgba(117, 117, 117, 1)),
+    color-stop(48%, rgba(110, 110, 110, 1)),
+    color-stop(52%, rgba(138, 134, 138, 1)),
+    color-stop(60%, rgba(97, 97, 97, 1)),
+    color-stop(76%, rgba(77, 77, 77, 1)),
+    color-stop(91%, rgba(33, 33, 33, 1)),
+    color-stop(100%, rgba(19, 19, 19, 1))
+  );
+  background: -webkit-linear-gradient(
+    -45deg,
+    rgba(19, 19, 19, 1) 0%,
+    rgba(46, 45, 46, 1) 12%,
+    rgba(77, 77, 77, 1) 25%,
+    rgba(117, 117, 117, 1) 39%,
+    rgba(110, 110, 110, 1) 48%,
+    rgba(138, 134, 138, 1) 52%,
+    rgba(97, 97, 97, 1) 60%,
+    rgba(77, 77, 77, 1) 76%,
+    rgba(33, 33, 33, 1) 91%,
+    rgba(19, 19, 19, 1) 100%
+  );
+  background: -o-linear-gradient(
+    -45deg,
+    rgba(19, 19, 19, 1) 0%,
+    rgba(46, 45, 46, 1) 12%,
+    rgba(77, 77, 77, 1) 25%,
+    rgba(117, 117, 117, 1) 39%,
+    rgba(110, 110, 110, 1) 48%,
+    rgba(138, 134, 138, 1) 52%,
+    rgba(97, 97, 97, 1) 60%,
+    rgba(77, 77, 77, 1) 76%,
+    rgba(33, 33, 33, 1) 91%,
+    rgba(19, 19, 19, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    -45deg,
+    rgba(19, 19, 19, 1) 0%,
+    rgba(46, 45, 46, 1) 12%,
+    rgba(77, 77, 77, 1) 25%,
+    rgba(117, 117, 117, 1) 39%,
+    rgba(110, 110, 110, 1) 48%,
+    rgba(138, 134, 138, 1) 52%,
+    rgba(97, 97, 97, 1) 60%,
+    rgba(77, 77, 77, 1) 76%,
+    rgba(33, 33, 33, 1) 91%,
+    rgba(19, 19, 19, 1) 100%
+  );
+  background: linear-gradient(
+    135deg,
+    rgba(19, 19, 19, 1) 0%,
+    rgba(46, 45, 46, 1) 12%,
+    rgba(77, 77, 77, 1) 25%,
+    rgba(117, 117, 117, 1) 39%,
+    rgba(110, 110, 110, 1) 48%,
+    rgba(138, 134, 138, 1) 52%,
+    rgba(97, 97, 97, 1) 60%,
+    rgba(77, 77, 77, 1) 76%,
+    rgba(33, 33, 33, 1) 91%,
+    rgba(19, 19, 19, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131313', endColorstr='#131313', GradientType=1 );
 }
 
 nav {
@@ -57,7 +130,7 @@ nav a {
 
 .img-home-center-container {
   width: 100%;
-  padding:0 100px;
+  padding: 0 100px;
 }
 .img-home-center {
   width: 100%;
@@ -76,48 +149,74 @@ nav a {
 .home-recipes-container img {
   width: 30%;
   margin-bottom: 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: 6px 6px 5px 0px rgba(168, 168, 168, 1);
+  -moz-box-shadow: 6px 6px 5px 0px rgba(168, 168, 168, 1);
+  box-shadow: 6px 6px 5px 0px rgba(168, 168, 168, 1);
 }
 
 .signup-container {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 50px;
 }
 
 .signup-title {
   font-size: 30px;
+  text-align: center;
+  color: white;
 }
 
 .signup-form-container {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 200px;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 .form-container {
+  width: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: center;
 }
 .label-input-container {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin-bottom: 20px;
 }
-.form-labels {
+.signup-labelsAndInputs {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  margin-bottom: 10px;
 }
-.form-inputs {
+
+.signup-labelsAndInputs label{
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+
+}
+
+.signup-btn-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin-left: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+#signup-btn {
+  width: 30%;
 }
 
 .google-container {
+  width: 20%;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   background: white;
@@ -133,7 +232,7 @@ nav a {
 .google-container a {
   text-decoration: none;
   color: lightseagreen;
-  margin: 0 10px;
+  margin: 10px;
 }
 
 footer {
@@ -168,8 +267,13 @@ footer p {
 .search-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 30%;
   margin-bottom: 20px;
+}
+.search-container button {
+  width: 40%;
 }
 
 .ingredient-container {
@@ -187,6 +291,9 @@ footer p {
 
 .ingredient-label label {
   margin-bottom: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
 }
 
 .ingredient-input input {
@@ -203,9 +310,7 @@ footer p {
   display: flex;
   flex-direction: column;
 }
-.userprofile-container h1 {
-  margin-left: 50px;
-}
+
 .userprofile-img-recipes {
   display: flex;
   justify-content: space-between;
@@ -214,8 +319,12 @@ footer p {
   margin-bottom: 20px;
 }
 .userprofile-img-recipes img {
-  width: 30%;
+  width: 40%;
   border-radius: 10px;
+  margin: 0 10px;
+  -webkit-box-shadow: 6px 6px 5px 0px rgba(168, 168, 168, 1);
+  -moz-box-shadow: 6px 6px 5px 0px rgba(168, 168, 168, 1);
+  box-shadow: 6px 6px 5px 0px rgba(168, 168, 168, 1);
 }
 
 .userprofile-links {
@@ -227,16 +336,17 @@ footer p {
 }
 
 .userprofile-links a {
-  width: 30%;
+  width: 40%;
   text-align: center;
   text-decoration: none;
-  color: dimgray;
+  color: white;
+  font-size: 20px;
   font-weight: bold;
 }
 
 .login-container {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   padding: 0 50px;
@@ -259,6 +369,12 @@ footer p {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+}
+
+.login-fields-container label{
+  color:white;
+  font-size: 15px;
+  font-weight: bold
 }
 
 .login-fields-container input {
@@ -301,7 +417,7 @@ footer p {
   background: white;
   border-radius: 10px;
   padding: 10px;
-  box-shadow: 10px 10px 5px 0px rgba(156,156,156,1);
+  box-shadow: 10px 10px 5px 0px rgba(156, 156, 156, 1);
 }
 .card-recipes a {
   text-decoration: none;
@@ -344,36 +460,128 @@ footer p {
   font-weight: bold;
 }
 
-.collections-container{
+.collections-container {
+  max-width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: flex-start;
   margin: 0 50px 20px 50px;
 }
-.collections-card{
+.collections-card {
   width: 100%;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background: lightpink;
+  justify-content: center;
+  align-items: flex-start;
+  background: #c4c1c2;
   border-radius: 10px;
-  margin:5px 15px;
+  margin: 5px 15px;
   padding: 10px 20px;
 }
-
-.collections-image{
-  width: 80%;
-  border-radius: 20px;
+.collections-title {
+  width: 50%;
+}
+.collections-form {
+  width: 50%;
+  margin: 0 25px;
+}
+.collections-image {
+  width: 90%;
+  border-radius: 60px;
+  margin: 0 30px 0 30px;
+  -webkit-box-shadow: 6px 6px 5px 0px rgba(82, 81, 82, 1);
+  -moz-box-shadow: 6px 6px 5px 0px rgba(82, 81, 82, 1);
+  box-shadow: 6px 6px 5px 0px rgba(82, 81, 82, 1);
 }
 
-.collections-card h2{
-  width: 60%;
+.collections-card h2 {
+  width: 100%;
+  text-align: center;
 }
 
-#instructionsUp{
+#instructionsUp {
   font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-  resize: none;
+  resize: vertical;
   text-align: justify;
-  width: 300%;
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#titleUp {
+  width: 100%;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 5px;
+  resize: none;
+  overflow-y: hidden;
+  border-radius: 10px;
+}
+
+.btn-colletions {
+  -moz-box-shadow: inset 0px 1px 3px 0px #91b8b3;
+  -webkit-box-shadow: inset 0px 1px 3px 0px #91b8b3;
+  box-shadow: inset 0px 1px 3px 0px #91b8b3;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #768d87),
+    color-stop(1, #6c7c7c)
+  );
+  background: -moz-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+  background: -webkit-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+  background: -o-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+  background: -ms-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+  background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#768d87', endColorstr='#6c7c7c',GradientType=0);
+  background-color: #768d87;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #566963;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 11px 23px;
+  text-decoration: none;
+  text-shadow: 0px -1px 0px #2b665e;
+}
+.btn-colletions:hover {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #6c7c7c),
+    color-stop(1, #768d87)
+  );
+  background: -moz-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+  background: -webkit-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+  background: -o-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+  background: -ms-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+  background: linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87',GradientType=0);
+  background-color: #6c7c7c;
+}
+.btn-colletions:active {
+  position: relative;
+  top: 1px;
+}
+
+.btn-colletions a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.btns-collections {
+  display: flex;
+  justify-content: space-around;
+}
+
+#collections-h1 {
+  color: white;
+  margin-left: 100px;
 }

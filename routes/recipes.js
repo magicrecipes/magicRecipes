@@ -88,7 +88,7 @@ router.get("/delete/:recipeID", activate.checkActive, (req, res) => {
 router.post("/update", (req, res, next) => {
   let updated = {
     _id: req.body._id,
-    title: req.body.title,
+    title: req.body.titleUp,
     instructions: req.body.instructionsUp
   };
 
