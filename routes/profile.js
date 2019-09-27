@@ -31,7 +31,7 @@ router.get("/collections", activate.checkActive, (req, res, next) => {
 
 router.get("/userCollections", activate.checkActive, (req, res, next) => {
   User.findByIdAndUpdate((req.user._id)).populate("recipes").then (user=>{
-    console.log(user.recipes)
+    
     res.render("profile/userCollections", {
       message: req.flash("error"),
       recipes: req.user.recipes
